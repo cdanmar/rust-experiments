@@ -32,11 +32,21 @@ fn run(args: Args) -> Result<()> {
     for filename in args.files {
         match open(&filename) {
             Err(err) => eprintln!("Failed to open {filename}: {err}"),
-            Ok(_) => println!("Opened {filename}"),
+            Ok(_) => {
+                let file = File::open(filename)?;
+                let reader = BufReader::new(file);
+                for line in reader.lines() {
+                    match line {
+                        Err(e) => eprintln!("Error reading line: {}", e),
+                        Ok(content) => println!("{}", content),
+                    }
+                }
+            }
         }
     }
     Ok(())
 }
+
 
 fn open(filename: &str) -> Result<Box<dyn BufRead>> {
     match filename {
