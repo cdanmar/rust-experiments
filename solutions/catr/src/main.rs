@@ -35,10 +35,22 @@ fn run(args: Args) -> Result<()> {
             Ok(_) => {
                 let file = File::open(filename)?;
                 let reader = BufReader::new(file);
+                let mut count = 0;
                 for line in reader.lines() {
                     match line {
                         Err(e) => eprintln!("Error reading line: {}", e),
-                        Ok(content) => println!("{}", content),
+                        // Ok(content) => println!("{}", content),
+                        Ok(content) => {
+                            if args.number_lines {
+                                count += 1;
+                                println!("{:>6}\t{}", count, content);
+                            } else if args.number_nonblank_lines && is_not_blank(&content) {
+                                count += 1;
+                                println!("{:>6}\t{}", count, content);
+                            } else {
+                                println!("{}", content);
+                            }
+                        }
                     }
                 }
             }
@@ -47,6 +59,9 @@ fn run(args: Args) -> Result<()> {
     Ok(())
 }
 
+fn is_not_blank(s: &str) -> bool {
+    !s.trim().is_empty()
+}
 
 fn open(filename: &str) -> Result<Box<dyn BufRead>> {
     match filename {
