@@ -21,27 +21,43 @@ struct Args {
         action = ArgAction::SetTrue,
         conflicts_with = "number_nonblank_lines"
     )]
-    number_lines: bool,
+    number: bool,
 
     /// Number the non-blank output lines, starting at 1
-    #[arg(long, short('b'), action = ArgAction::SetTrue, conflicts_with = "number_lines")]
+    #[arg(
+        long("number-nonblank"),
+        short('b'),
+        action = ArgAction::SetTrue,
+        conflicts_with = "number"
+    )]
     number_nonblank_lines: bool,
+}
+
+// Determine if line is blank
+fn is_not_blank(s: &str) -> bool {
+    !s.trim().is_empty()
+}
+
+// Pattern match to see if file or STDIN is being passed
+fn open(filename: &str) -> Result<Box<dyn BufRead>> {
+    match filename {
+        "-" => Ok(Box::new(BufReader::new(io::stdin()))),
+        _ => Ok(Box::new(BufReader::new(File::open(filename)?))),
+    }
 }
 
 fn run(args: Args) -> Result<()> {
     for filename in args.files {
         match open(&filename) {
             Err(err) => eprintln!("Failed to open {filename}: {err}"),
-            Ok(_) => {
-                let file = File::open(filename)?;
+            Ok(file) => {
                 let reader = BufReader::new(file);
                 let mut count = 0;
                 for line in reader.lines() {
                     match line {
                         Err(e) => eprintln!("Error reading line: {}", e),
-                        // Ok(content) => println!("{}", content),
                         Ok(content) => {
-                            if args.number_lines {
+                            if args.number {
                                 count += 1;
                                 println!("{:>6}\t{}", count, content);
                             } else if args.number_nonblank_lines && is_not_blank(&content) {
@@ -57,17 +73,6 @@ fn run(args: Args) -> Result<()> {
         }
     }
     Ok(())
-}
-
-fn is_not_blank(s: &str) -> bool {
-    !s.trim().is_empty()
-}
-
-fn open(filename: &str) -> Result<Box<dyn BufRead>> {
-    match filename {
-        "-" => Ok(Box::new(BufReader::new(io::stdin()))),
-        _ => Ok(Box::new(BufReader::new(File::open(filename)?))),
-    }
 }
 
 fn main() {
