@@ -1,0 +1,10 @@
+/Users/carlosmartinez/development/rust-experiments/solutions/headr/target/debug/deps/libfloat_cmp-f54ec2a8b716a7f4.rmeta: /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/lib.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/macros.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/ulps.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/ulps_eq.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/eq.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/ratio.rs
+
+/Users/carlosmartinez/development/rust-experiments/solutions/headr/target/debug/deps/float_cmp-f54ec2a8b716a7f4.d: /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/lib.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/macros.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/ulps.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/ulps_eq.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/eq.rs /Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/ratio.rs
+
+/Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/lib.rs:
+/Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/macros.rs:
+/Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/ulps.rs:
+/Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/ulps_eq.rs:
+/Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/eq.rs:
+/Users/carlosmartinez/.cargo/registry/src/index.crates.io-6f17d22bba15001f/float-cmp-0.10.0/src/ratio.rs:
